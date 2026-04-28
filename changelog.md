@@ -21,6 +21,11 @@
 - [mpm] Reorganize `packaging/` directory into `packaging/choco/`, `packaging/guix/`, and `packaging/nix/` subdirectories.
 - [pip] Filter mpm's own dependency tree from `outdated` results to fix false positives in Homebrew-installed environments. Closes {issue}`1767`.
 
+## [`6.4.0` (2026-04-27)](https://github.com/kdeldycke/meta-package-manager/compare/v6.4.0.dev0...v6.4.0)
+
+> [!NOTE]
+> `6.4.0` is available on [🐍 PyPI](https://pypi.org/project/meta-package-manager/6.4.0/) and [🐙 GitHub](https://github.com/kdeldycke/meta-package-manager/releases/tag/v6.4.0).
+
 ## [`6.3.0` (2026-04-09)](https://github.com/kdeldycke/meta-package-manager/compare/v6.2.1...v6.3.0)
 
 > [!NOTE]
