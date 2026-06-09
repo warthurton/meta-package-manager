@@ -134,12 +134,20 @@ $ pipx install meta-package-manager
 ```
 ````
 
-````{tab-item} brew
-Meta Package Manager is [available as an Homebrew formula](https://formulae.brew.sh/formula/meta-package-manager), so you just need to:
+````{tab-item} Homebrew
+Meta Package Manager is [available as a Homebrew formula](https://formulae.brew.sh/formula/meta-package-manager), so you just need to:
 
 ```{code-block} shell-session
 $ brew install meta-package-manager
 ```
+
+:::{tip}
+[ZeroBrew](https://github.com/lucasgelfond/zerobrew) is a fast, Homebrew-compatible package manager written in Rust. It consumes the same formula and installs `mpm` with:
+
+```{code-block} shell-session
+$ zb install meta-package-manager
+```
+:::
 ````
 
 ````{tab-item} Scoop
@@ -151,45 +159,29 @@ Meta Package Manager is available in the `main` repository of [Scoop](https://sc
 ````
 
 ````{tab-item} Chocolatey
-Meta Package Manager is [available on Chocolatey](https://community.chocolatey.org/packages/meta-package-manager), so you just need to:
+Build and install from [the specs maintained in the repository](https://github.com/kdeldycke/meta-package-manager/tree/main/packaging/choco/meta-package-manager):
+
+```{code-block} pwsh-session
+> git clone https://github.com/kdeldycke/meta-package-manager.git
+> cd meta-package-manager\packaging\choco\meta-package-manager
+> choco pack
+> choco install meta-package-manager --source .
+```
+
+:::{admonition} Help land it in the community repository
+:class: important
+The Chocolatey package is [pending community review](https://community.chocolatey.org/packages/meta-package-manager). Once approved, installation will be a one-liner:
 
 ```{code-block} pwsh-session
 > choco install meta-package-manager
 ```
 
-:::{tip}
-The Chocolatey package is [pending community review](https://community.chocolatey.org/packages/meta-package-manager). You can help speed up moderation by showing your support on the package page. In the meantime, you can build and install from [the specs maintained in the repository](https://github.com/kdeldycke/meta-package-manager/tree/main/packaging/choco):
-
-```{code-block} pwsh-session
-> git clone https://github.com/kdeldycke/meta-package-manager.git
-> cd meta-package-manager\packaging\choco
-> choco pack
-> choco install meta-package-manager --source .
-```
+You can help speed up moderation by showing your support on [the package page](https://community.chocolatey.org/packages/meta-package-manager).
 :::
 ````
 
 ````{tab-item} Nix
-Meta Package Manager is [available in nixpkgs](https://search.nixos.org/packages?query=meta-package-manager), so you can install it with:
-
-```{code-block} shell-session
-$ nix-env --install --attr nixpkgs.meta-package-manager
-```
-
-Or try it without installing:
-
-```{code-block} shell-session
-$ nix-shell -p meta-package-manager --run "mpm --version"
-```
-
-On flake-enabled systems:
-
-```{code-block} shell-session
-$ nix run nixpkgs#meta-package-manager -- --version
-```
-
-:::{tip}
-The nixpkgs package is pending review at [NixOS/nixpkgs#506145](https://github.com/NixOS/nixpkgs/pull/506145). You can help move it forward by showing your support on the pull request. In the meantime, you can build and install from [the definition maintained in the repository](https://github.com/kdeldycke/meta-package-manager/tree/main/packaging/nix):
+Build and install from [the definition maintained in the repository](https://github.com/kdeldycke/meta-package-manager/tree/main/packaging/nix):
 
 ```{code-block} shell-session
 $ git clone https://github.com/kdeldycke/meta-package-manager.git
@@ -201,6 +193,28 @@ On flake-enabled systems:
 ```{code-block} shell-session
 $ nix run github:kdeldycke/meta-package-manager?dir=packaging/nix -- --version
 ```
+
+:::{admonition} Help land it in nixpkgs
+:class: important
+The nixpkgs package is pending review at [NixOS/nixpkgs#506145](https://github.com/NixOS/nixpkgs/pull/506145). Once merged, installation will be a one-liner:
+
+```{code-block} shell-session
+$ nix-env --install --attr nixpkgs.meta-package-manager
+```
+
+Or, without installing:
+
+```{code-block} shell-session
+$ nix-shell -p meta-package-manager --run "mpm --version"
+```
+
+On flake-enabled systems:
+
+```{code-block} shell-session
+$ nix run nixpkgs#meta-package-manager -- --version
+```
+
+You can help move it forward by showing your support on [the pull request](https://github.com/NixOS/nixpkgs/pull/506145).
 :::
 ````
 
@@ -212,8 +226,15 @@ $ git clone https://github.com/kdeldycke/meta-package-manager.git
 $ guix install --load-path=./meta-package-manager/packaging/guix python-meta-package-manager
 ```
 
-:::{tip}
-The Guix package is pending review at [guix/guix#8047](https://codeberg.org/guix/guix/pulls/8047). You can help move it forward by showing your support on the pull request.
+:::{admonition} Help land it in the Guix channel
+:class: important
+The Guix package is pending review at [guix/guix#8047](https://codeberg.org/guix/guix/pulls/8047). Once merged, installation will be a one-liner:
+
+```{code-block} shell-session
+$ guix install python-meta-package-manager
+```
+
+You can help move it forward by showing your support on [the pull request](https://codeberg.org/guix/guix/pulls/8047).
 :::
 ````
 
@@ -241,13 +262,6 @@ $ stew install kdeldycke/meta-package-manager
 ```
 ````
 
-````{tab-item} ZeroBrew
-[ZeroBrew](https://github.com/lucasgelfond/zerobrew) is a fast, Homebrew-compatible package manager written in Rust:
-
-```{code-block} shell-session
-$ zb install meta-package-manager
-```
-````
 `````
 
 ## Binaries
